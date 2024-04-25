@@ -93,7 +93,7 @@ jobs:
     - name: Install Feeds
       run: |
         cd $OPENWRT_PATH
-        chmod +x $GITHUB_WORKSPACE/scripts/*.sh   #自己添加
+        chmod +x $GITHUB_WORKSPACE/*.sh   #自己添加
         chmod +x $DIY_SCRIPT               #自己添加
         $GITHUB_WORKSPACE/$DIY_SCRIPT      #自己添加
         ./scripts/feeds update -a
