@@ -93,9 +93,12 @@ jobs:
     - name: Install Feeds
       run: |
         cd $OPENWRT_PATH
+        chmod +x $GITHUB_WORKSPACE/scripts/*.sh   #自己添加
+        chmod +x $DIY_SCRIPT               #自己添加
+        $GITHUB_WORKSPACE/$DIY_SCRIPT      #自己添加
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-
+       
     - name: Apply patches   
       run: |
         git config --global user.name "OpenWrt Builder"
