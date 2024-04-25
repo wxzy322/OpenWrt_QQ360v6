@@ -6,7 +6,7 @@
 # 更改默认 Shell 为 zsh
 # sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 
-sed -i '1i\src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
+# sed -i '1i\src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
 
 # TTYD 免登录
 # sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
