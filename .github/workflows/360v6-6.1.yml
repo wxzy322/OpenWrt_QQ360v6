@@ -6,8 +6,8 @@ on:
    # - cron: 0 19 * * *
 
 env:
-  REPO_URL: https://github.com/breeze303/openwrt-ipq60xx.git
-  REPO_BRANCH: kernel-6.1
+  REPO_URL: https://github.com/wxzy322/ipq60xx-6.1
+  REPO_BRANCH: main
   CONFIG_FILE: configs/360v6-6.1.config
   PATCHES_FILE_1: patches/0001-show-soc-status-on-luci.patch
   DIY_SCRIPT: diy-script.sh
@@ -93,6 +93,9 @@ jobs:
     - name: Install Feeds
       run: |
         cd $OPENWRT_PATH
+        sed -i '1i src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
+        # 活动连接数修改
+        sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
         ./scripts/feeds update -a
         ./scripts/feeds install -a
 
